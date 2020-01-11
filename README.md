@@ -12,6 +12,7 @@
 * [wcmd](#wcmd)
 * [Usage](#usage)
 * [Commands](#commands)
+* [License](#license)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
