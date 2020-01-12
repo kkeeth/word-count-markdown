@@ -9,7 +9,8 @@ class Wcmd extends Command {
     version: flags.version({char: 'v'}),
     help: flags.help({char: 'h'}),
     simpleVersion: myFlags.version,
-    line: myFlags.line
+    line: myFlags.line,
+    multiple: myFlags.multiple
   }
 
   async run() {
