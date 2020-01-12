@@ -1,6 +1,6 @@
 {
   "name": "wcmd",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "kkeeth",
   "bin": {
     "wcmd": "./bin/run"

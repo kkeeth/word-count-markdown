@@ -7,51 +7,24 @@
 [![License](https://img.shields.io/npm/l/wcmd.svg)](https://github.com/kkeeth/word-count-markdown/blob/master/LICENSE)
 
 <!-- toc -->
-* [wcmd](#wcmd)
+* [word-count-markdown(wcmd)](#word-count-markdownwcmd)
 * [Usage](#usage)
-* [Commands](#commands)
 * [License](#license)
+* [Others](#others)
 <!-- tocstop -->
 
 # Usage
 <!-- usage -->
 ```sh-session
 $ npm install -g wcmd
-
-$ wcmd README.md
-- root (807)
-    - word-count-markdown(wcmd) (481)
-    - Usage (220)
-    - Commands (34)
-    - License (72)
-
+$ wcmd COMMAND
+running command...
 $ wcmd (-v|--version|version)
-wcmd/0.0.1 darwin-x64 node-v12.13.1
-
-$ wcmd (-V|--simpleVersion)
-0.0.1
-
-$ wcmd (-h|--help)
+wcmd/1.0.0 darwin-x64 node-v12.13.1
+$ wcmd --help [COMMAND]
 USAGE
-  $ wcmd TARGET
-
-ARGUMENTS
-  TARGET  specified target directory path or filename
-
-OPTIONS
-  -V, --simpleVersion  show only command version
-  -h, --help           show CLI help
-  -l, --line           show summary by line
-  -m, --multiple       count all files in a directory
-  -v, --version        show CLI version
-
-EXAMPLE
-  $ wcmd README.md
-  - root (807)
-     - word-count-markdown(wcmd) (481)
-     - Usage (220)
-     - Commands (34)
-     - License (72)
+  $ wcmd COMMAND
+...
 ```
 <!-- usagestop -->
 
