@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import { CLIError } from '@oclif/errors'
-import { ISection } from './interfaces'
+import { ISection, ICountCharacters } from './interfaces'
 
 class Section {
   opts: any
@@ -20,7 +20,13 @@ class Section {
   }
 }
 
-export const getFiles = (dirpath: string): fs.Dirent[] => fs.readdirSync(dirpath, {withFileTypes: true})
+export const getFiles = (dirpath: string): fs.Dirent[] => {
+  try {
+    return fs.readdirSync(dirpath, {withFileTypes: true})
+  } catch (e) {
+    throw new CLIError('The specified directory does not exist'.red)
+  }
+}
 
 export const checkExpansion = (filename: string): any => {
   // specified file is not found
@@ -34,7 +40,7 @@ export const checkExpansion = (filename: string): any => {
   return filename
 }
 
-export const countCharacters = (filename: string): any => {
+export const countCharacters = (filename: string): ICountCharacters => {
   const text = fs.readFileSync(filename, 'utf8')
 
   let currentSection = new Section()

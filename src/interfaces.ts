@@ -10,3 +10,8 @@ export interface ISection {
   floor: number
   length: number
 }
+
+export interface ICountCharacters {
+  lines: any[]
+  sections: ISection[]
+}
