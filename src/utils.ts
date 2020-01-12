@@ -20,6 +20,11 @@ class Section {
   }
 }
 
+export const checkTarget = (target: string) => {
+  if (target === undefined)
+  throw new CLIError('No specified any file or directory\nSee more help with --help'.red)
+}
+
 export const getFiles = (dirpath: string): fs.Dirent[] => {
   try {
     return fs.readdirSync(dirpath, { withFileTypes: true })
@@ -31,11 +36,11 @@ export const getFiles = (dirpath: string): fs.Dirent[] => {
 export const checkExpansion = (filename: string): any => {
   // specified file is not found
   if (!fs.existsSync(filename))
-    throw new CLIError('A file you specified is not found'.red)
+    throw new CLIError('A file you specified is not found\nSee more help with --help'.red)
 
   // wrong expantion specified
   if (path.extname(filename) !== '.md')
-    throw new CLIError('A file other than .md is specified'.red)
+    throw new CLIError('A file other than .md is specified\nSee more help with --help'.red)
 
   return filename
 }

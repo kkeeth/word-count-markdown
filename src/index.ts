@@ -4,7 +4,8 @@ import myFlags from './flags'
 import {
   countCharacters,
   checkExpansion,
-  getFiles
+  getFiles,
+  checkTarget
 } from './utils'
 import {
   countEachLines,
@@ -24,7 +25,6 @@ class Wcmd extends Command {
 
   static args = [{
     name: 'target',
-    required: true,
     description: 'specified target directory path or filename'
   }]
 
@@ -46,6 +46,9 @@ class Wcmd extends Command {
       this.log(`${myFlags.version.env}`)
       return
     }
+
+    // no specified file or directory
+    checkTarget(args.target)
 
     // count files in a directory
     if (flags.multiple) {
