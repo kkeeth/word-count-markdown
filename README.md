@@ -14,19 +14,37 @@
 <!-- tocstop -->
 
 # Usage
-<!-- usage -->
 ```sh-session
 $ npm install -g wcmd
-$ wcmd COMMAND
-running command...
-$ wcmd (-v|--version|version)
+
+$ wcmd (-V|simpleVersion)
 wcmd/1.0.2 darwin-x64 node-v12.13.1
-$ wcmd --help [COMMAND]
+
+$ wcmd (-v|--version|version)
+1.0.2
+
+$ wcmd --help
 USAGE
-  $ wcmd COMMAND
-...
+  $ wcmd [TARGET]
+
+ARGUMENTS
+  TARGET  specified target directory path or filename
+
+OPTIONS
+  -V, --simpleVersion  show only command version
+  -h, --help           show CLI help
+  -l, --line           show summary by line
+  -m, --multiple       count all files in a directory
+  -v, --version        show CLI version
+
+EXAMPLE
+  $ wcmd README.md
+  - root (807)
+     - word-count-markdown(wcmd) (481)
+     - Usage (220)
+     - Commands (34)
+     - License (72)
 ```
-<!-- usagestop -->
 
 `Note` the `-l` and `-m` options cannot be used at the same time.
 
