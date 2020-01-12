@@ -20,7 +20,9 @@ class Section {
   }
 }
 
-export const checkExpansion = (filename: string): any=> {
+export const getFiles = (dirpath: string): fs.Dirent[] => fs.readdirSync(dirpath, {withFileTypes: true})
+
+export const checkExpansion = (filename: string): any => {
   // specified file is not found
   if (!fs.existsSync(filename))
     throw new CLIError('A file you specified is not found'.red)
@@ -29,7 +31,7 @@ export const checkExpansion = (filename: string): any=> {
   if (path.extname(filename) !== '.md')
     throw new CLIError('A file other than .md is specified'.red)
 
-    return filename
+  return filename
 }
 
 export const countCharacters = (filename: string): any => {
