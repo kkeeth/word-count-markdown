@@ -15,8 +15,9 @@ export const countEachSections = (result: ICountCharacters, log: any): void => {
     log([
       (new Array(section.floor + 1)).join('  '),
       '-'.grey,
-      (section.name || 'root'.grey),
+      (section.name || 'total'.grey),
       ['(', section.length, ')'].join('').green
     ].join(' '))
   })
+  log('\n')
 }

@@ -18,10 +18,10 @@
 $ npm install -g wcmd
 
 $ wcmd (-V|simpleVersion)
-wcmd/1.0.2 darwin-x64 node-v12.13.1
+1.0.4
 
 $ wcmd (-v|--version|version)
-1.0.2
+wcmd/1.0.4 darwin-x64 node-v12.13.1
 
 $ wcmd --help
 USAGE
@@ -38,15 +38,39 @@ OPTIONS
   -v, --version        show CLI version
 
 EXAMPLE
+  count a single file
+
   $ wcmd README.md
-  - root (807)
+  - total (807)
      - word-count-markdown(wcmd) (481)
      - Usage (220)
      - Commands (34)
      - License (72)
+
+  count multiple files
+
+  $ wcmd /path/to/directory -m
+  - total (2625)
+    - chapter1 (2625)
+      - title1 (678)
+      - title2 (1947)
+        - 1. section1 (817)
+        - 2. section2 (640)
+        - 3. section3 (309)
+        - 4. section4 (157)
+
+  - total (408)
+    - chapter1 (408)
+
+  - total (1182)
+    - chapter1 (1182)
+      - title1 (395)
+      - title2 (301)
 ```
 
-`Note` the `-l` and `-m` options cannot be used at the same time.
+`Note`
+* The `-l` and `-m` options cannot be used at the same time.
+* There is no point in specifying the `-m` option and the directory path.
 
 # License
 

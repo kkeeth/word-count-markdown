@@ -31,11 +31,33 @@ class Wcmd extends Command {
 
   static examples = [
     `$ ${'wcmd'.green} README.md
-- root ${'(807)'.green}
+- total ${'(807)'.green}
   - word-count-markdown(wcmd) ${'(481)'.green}
   - Usage ${'(220)'.green}
   - Commands ${'(34)'.green}
   - License ${'(72)'.green}
+
+$ ${'wcmd'.green} /path/to/directory -m
+- total ${'(2625)'.green}
+  - chapter1 ${'(2625)'.green}
+    - title1 ${'(678)'.green}
+    - title2 ${'(1947)'.green}
+      - 1. section1 ${'(817)'.green}
+      - 2. section2 ${'(640)'.green}
+      - 3. section3 ${'(309)'.green}
+      - 4. section4 ${'(157)'.green}
+
+- total ${'(408)'.green}
+  - chapter1 ${'(408)'.green}
+
+- total ${'(1182)'.green}
+  - chapter1 ${'(1182)'.green}
+    - title1 ${'(395)'.green}
+    - title2 ${'(301)'.green}
+
+${'Note'.bgMagenta}
+  - The ${'-l'.magenta} and ${'-m'.magenta} options cannot be used at the same time.
+  - There is no point in specifying the ${'-m'.magenta} option and the directory path.
 `
   ]
 
