@@ -1,6 +1,5 @@
-# wcmd
+# word-count-markdown(wcmd)
 ====
-
 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
@@ -14,20 +13,28 @@
 * [Commands](#commands)
 * [License](#license)
 <!-- tocstop -->
+
 # Usage
 <!-- usage -->
 ```sh-session
 $ npm install -g wcmd
+
 $ wcmd COMMAND
 running command...
+
 $ wcmd (-v|--version|version)
 wcmd/0.0.1 darwin-x64 node-v12.13.1
-$ wcmd --help [COMMAND]
+
+$ wcmd (-V|--simpleVersion)
+0.0.1
+
+$ wcmd (-h|--help) [COMMAND]
 USAGE
   $ wcmd COMMAND
 ...
 ```
 <!-- usagestop -->
+
 # Commands
 <!-- commands -->
 
