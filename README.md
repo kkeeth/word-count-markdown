@@ -19,7 +19,7 @@
 ```sh-session
 $ npm install -g wcmd
 
-$ wcmd COMMAND
+$ wcmd FILENAME
 running command...
 
 $ wcmd (-v|--version|version)

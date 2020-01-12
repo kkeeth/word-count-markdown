@@ -8,6 +8,7 @@ const FyFlags = {
   }),
   line: flags.boolean({
     char: 'l',
+    default: false,
     description: 'show summary by line'
   }),
   multiple: flags.boolean({
