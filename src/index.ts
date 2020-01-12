@@ -10,14 +10,13 @@ import {
   countEachLines,
   countEachSections
 } from './core'
-import { ILine, ISection } from './interfaces'
 
 class Wcmd extends Command {
   static description = 'Counts the number of characters in all files or individual markdown files in the specified directory.'
 
   static flags = {
-    version: flags.version({char: 'v'}),
-    help: flags.help({char: 'h'}),
+    version: flags.version({ char: 'v' }),
+    help: flags.help({ char: 'h' }),
     simpleVersion: myFlags.version,
     line: myFlags.line,
     multiple: myFlags.multiple
@@ -40,7 +39,7 @@ class Wcmd extends Command {
   ]
 
   async run() {
-    const {args, flags} = this.parse(Wcmd)
+    const { args, flags } = this.parse(Wcmd)
 
     // command version only
     if (flags.simpleVersion) {
@@ -55,7 +54,7 @@ class Wcmd extends Command {
       files.forEach(async item => {
         const file = await checkExpansion(`${args.target}/${item.name}`)
         const result = await countCharacters(file)
-        countEachSections(result)
+        countEachSections(result, this.log)
       })
 
     // count single file
@@ -64,9 +63,9 @@ class Wcmd extends Command {
       const result = await countCharacters(file)
 
       if (flags.line)
-        countEachLines(result)
+        countEachLines(result, this.log)
       else
-        countEachSections(result)
+        countEachSections(result, this.log)
     }
   }
 }

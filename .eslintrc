@@ -2,5 +2,17 @@
   "extends": [
     "oclif",
     "oclif-typescript"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/interface-name-prefix": "always",
+    "object-curly-spacing": [2, "always"],
+    "comma-dangle": ["error", "never"],
+    "no-restricted-imports": ["error", {
+      "paths": [{
+        "name": "colors",
+        "importNames": ["colors"]
+      }]
+    }],
+    "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: true }]
+  }
 }

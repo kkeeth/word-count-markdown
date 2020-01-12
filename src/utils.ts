@@ -7,23 +7,23 @@ class Section {
   opts: any
   name: string
   header: string
-  length: number = 0
+  length = 0
   floor: number
 
   constructor(opts: any = {}) {
     this.opts = opts || {}
-    this.name = opts.name || '';
-    this.header = opts.header || '';
+    this.name = opts.name || ''
+    this.header = opts.header || ''
 
-    this.length = 0;
-    this.floor = this.header.length;
+    this.length = 0
+    this.floor = this.header.length
   }
 }
 
 export const getFiles = (dirpath: string): fs.Dirent[] => {
   try {
-    return fs.readdirSync(dirpath, {withFileTypes: true})
-  } catch (e) {
+    return fs.readdirSync(dirpath, { withFileTypes: true })
+  } catch (error) {
     throw new CLIError('The specified directory does not exist'.red)
   }
 }
@@ -44,25 +44,25 @@ export const countCharacters = (filename: string): ICountCharacters => {
   const text = fs.readFileSync(filename, 'utf8')
 
   let currentSection = new Section()
-  let lines: any[] = []
+  const lines: any[] = []
   const sections = [currentSection]
   const sectionFloors = [currentSection]
 
   const countUpAncestor = (section: ISection) => {
-    for (var i = 0; i < section.floor; i++) {
-      sectionFloors[i].length += section.length;
+    for (let i = 0; i < section.floor; i++) {
+      sectionFloors[i].length += section.length
     }
   }
 
   text.split(/\n/).forEach((text: string) => {
     const stripedText = text
-            .replace(/\n+/g, '')
-            .replace(/[\s\b ]/g, '')
-            .replace(/^#+.+$/g, '')
-            .replace(/^>+.+$/g, '')
-            .replace(/^-/g, '')
-            .replace(/^>/g, '')
-            .replace(/`/g, '')
+    .replace(/\n+/g, '')
+    .replace(/[\s\b ]/g, '')
+    .replace(/^#+.+$/g, '')
+    .replace(/^>+.+$/g, '')
+    .replace(/^-/g, '')
+    .replace(/^>/g, '')
+    .replace(/`/g, '')
     const length = stripedText.length
     const headerMatch = text.match(/^ *(#+) *(.+)$/)
 

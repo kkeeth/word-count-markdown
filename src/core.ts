@@ -1,22 +1,22 @@
 import { ILine, ICountCharacters, ISection } from './interfaces'
 
-export const countEachLines = (result: ICountCharacters ): void => {
+export const countEachLines = (result: ICountCharacters, log: any): void => {
   result.lines.forEach((line: ILine) => {
-    console.log(
-        '%s\t"%s"',
-        ['(', line.length, ')'].join('').green,
-        line.text
+    log(
+      '%s\t"%s"',
+      ['(', line.length, ')'].join('').green,
+      line.text
     )
   })
 }
 
-export const countEachSections = (result: ICountCharacters): void => {
+export const countEachSections = (result: ICountCharacters, log: any): void => {
   result.sections.forEach((section: ISection) => {
-    console.log([
-        (new Array(section.floor + 1)).join('  '),
-        '-'.grey,
-        (section.name || 'root'.grey),
-        ['(', section.length, ')'].join('').green
+    log([
+      (new Array(section.floor + 1)).join('  '),
+      '-'.grey,
+      (section.name || 'root'.grey),
+      ['(', section.length, ')'].join('').green
     ].join(' '))
   })
 }
