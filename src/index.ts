@@ -13,7 +13,7 @@ import {
 import { ILine, ISection } from './interfaces'
 
 class Wcmd extends Command {
-  static description = 'describe the command here'
+  static description = 'Counts the number of characters in all files or individual markdown files in the specified directory.'
 
   static flags = {
     version: flags.version({char: 'v'}),
