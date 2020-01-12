@@ -11,6 +11,7 @@ import {
   countEachLines,
   countEachSections
 } from './core'
+import { Dirent } from 'fs'
 
 class Wcmd extends Command {
   static description = 'Counts the number of characters in all files or individual markdown files in the specified directory.'
@@ -52,7 +53,7 @@ class Wcmd extends Command {
 
     // count files in a directory
     if (flags.multiple) {
-      const files = await getFiles(args.target)
+      const files: Dirent[] = await getFiles(args.target)
 
       files.forEach(async item => {
         const file = await checkExpansion(`${args.target}/${item.name}`)
