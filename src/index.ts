@@ -1,4 +1,5 @@
 import {Command, flags} from '@oclif/command'
+import 'colors'
 import myFlags from './flags'
 
 class Wcmd extends Command {

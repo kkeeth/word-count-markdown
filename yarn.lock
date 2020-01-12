@@ -18,6 +18,11 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@cw-types/colors@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@cw-types/colors/-/colors-1.1.4.tgz#68cbde28eaf4c74aa6f1d0ee5b4a2b7ee7bd2dfa"
+  integrity sha512-h4px1NySDpzrt5QDNph3w+4eHtwJL4b0kJUnC/RVjdUl6LpOX/dev/u/SWvQ5KnNJqeoFaH10zKJepT1Yt8ZgA==
+
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.3.tgz#3a582bdb53804c6ba6d146579c46e52130cf4a3b"
