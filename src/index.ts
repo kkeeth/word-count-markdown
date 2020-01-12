@@ -21,9 +21,18 @@ class Wcmd extends Command {
     description: 'specified target file path'
   }]
 
+  static examples = [
+    `$ ${'wcmd'.green} README.md
+- root ${'(807)'.green}
+  - word-count-markdown(wcmd) ${'(481)'.green}
+  - Usage ${'(220)'.green}
+  - Commands ${'(34)'.green}
+  - License ${'(72)'.green}
+`,
+  ]
+
   async run() {
     const {args, flags} = this.parse(Wcmd)
-    console.log(args)
 
     const file = checkExpansion(args.file)
     const result = countCharacters(file)
