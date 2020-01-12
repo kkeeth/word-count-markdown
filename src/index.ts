@@ -9,13 +9,11 @@ class Wcmd extends Command {
     help: flags.help({char: 'h'}),
   }
 
-  static args = [{name: 'file'}]
-
   async run() {
     const {args, flags} = this.parse(Wcmd)
+console.log(flags)
 
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from ./src/index.ts`)
+    this.log(`hello from ./src/index.ts`)
     if (args.file) {
       this.log(`you input --file: ${args.file}`)
     }
