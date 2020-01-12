@@ -27,7 +27,13 @@ export const checkTarget = (target: string) => {
 
 export const getFiles = (dirpath: string): fs.Dirent[] => {
   try {
-    return fs.readdirSync(dirpath, { withFileTypes: true })
+    const fitlerdFiles: fs.Dirent[]
+      = fs.readdirSync(dirpath, { withFileTypes: true }).filter(item => /.md/.test(item.name))
+
+    if (fitlerdFiles.length === 0)
+      throw new CLIError('There is no markdown file in specifying directory'.red)
+
+    return fitlerdFiles
   } catch (error) {
     throw new CLIError('The specified directory does not exist'.red)
   }
