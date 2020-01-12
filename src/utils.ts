@@ -20,33 +20,36 @@ class Section {
   }
 }
 
+const showError = (message: string): void => {
+  throw new CLIError(`${message}\nSee more help with --help`.red)
+}
+
 export const checkTarget = (target: string) => {
   if (target === undefined)
-  throw new CLIError('No specified any file or directory\nSee more help with --help'.red)
+    showError('No specified any file or directory')
 }
 
 export const getFiles = (dirpath: string): fs.Dirent[] => {
   try {
-    const fitlerdFiles: fs.Dirent[]
-      = fs.readdirSync(dirpath, { withFileTypes: true }).filter(item => /.md/.test(item.name))
+    const fitlerdFiles: fs.Dirent[] = fs.readdirSync(dirpath, { withFileTypes: true }).filter(item => /.md/.test(item.name))
 
     if (fitlerdFiles.length === 0)
-      throw new CLIError('There is no markdown file in specifying directory'.red)
+      showError('There is no markdown file in specifying directory')
 
     return fitlerdFiles
   } catch (error) {
-    throw new CLIError('The specified directory does not exist'.red)
+    showError('The specified directory does not exist')
   }
 }
 
 export const checkExpansion = (filename: string): any => {
   // specified file is not found
   if (!fs.existsSync(filename))
-    throw new CLIError('A file you specified is not found\nSee more help with --help'.red)
+    showError('A file you specified is not found')
 
   // wrong expantion specified
   if (path.extname(filename) !== '.md')
-    throw new CLIError('A file other than .md is specified\nSee more help with --help'.red)
+    showError('A file other than .md is specified')
 
   return filename
 }
