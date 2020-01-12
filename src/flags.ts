@@ -2,7 +2,8 @@ import {flags} from '@oclif/command'
 
 const version = flags.boolean({
   char: 'V',
-  default: require('../package.json').version
+  description: 'show only command version',
+  env: require('../package.json').version
 })
 
 const line = flags.boolean({

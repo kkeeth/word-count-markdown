@@ -14,8 +14,8 @@ class Wcmd extends Command {
   async run() {
     const {args, flags} = this.parse(Wcmd)
 
-    // only use native console here
-    flags.simpleVersion && console.log(myFlags.version.default)
+    if (flags.simpleVersion)
+      this.log(`${myFlags.version.env}`)
   }
 }
 
