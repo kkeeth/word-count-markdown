@@ -20,7 +20,7 @@ $ npm install -g wcmd
 $ wcmd COMMAND
 running command...
 $ wcmd (-v|--version|version)
-wcmd/1.0.0 darwin-x64 node-v12.13.1
+wcmd/1.0.1 darwin-x64 node-v12.13.1
 $ wcmd --help [COMMAND]
 USAGE
   $ wcmd COMMAND
