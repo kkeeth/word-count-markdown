@@ -1,11 +1,11 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import { CLIError } from '@oclif/errors'
-import { ISection, ICountCharacters } from './interfaces'
+import { ISection, ICountCharacters, ILine } from './interfaces'
 
 const ERRORS = {
   NO_SPECIFY: 'No specified any file or directory',
-  WRONG_SPRCIFY: `A markdown file cannot be specified for the -m option`,
+  WRONG_SPECIFY: `A markdown file cannot be specified for the -m option`,
   NOT_FOUND_DIR: 'The specified directory does not exist',
   NOT_FOUND_FILE: 'The specified file does not exist',
   NOT_MARKDOWN: 'The specified file does not .md',
@@ -39,28 +39,28 @@ export const checkTarget = (target: string): void => {
 
 export const getFiles = (dirpath: string): any => {
   // -m option and markdown file
-  if (/.md/.test(dirpath)) showError(ERRORS.WRONG_SPRCIFY)
+  if (/.md/.test(dirpath)) showError(ERRORS.WRONG_SPECIFY)
 
   try {
-    const filterdFiles: fs.Dirent[] = fs.readdirSync(dirpath, { withFileTypes: true }).filter(item => /.md/.test(item.name))
+    const filteredFiles: fs.Dirent[] = fs.readdirSync(dirpath, { withFileTypes: true }).filter(item => /.md/.test(item.name))
 
     // null or undefined
-    if (!filterdFiles) throw(ERRORS.NOT_FOUND_DIR)
+    if (!filteredFiles) throw(ERRORS.NOT_FOUND_DIR)
     // empty array
-    if (filterdFiles.length === 0) throw(ERRORS.NOT_FOUND_MARKDOWN)
+    if (filteredFiles.length === 0) throw(ERRORS.NOT_FOUND_MARKDOWN)
 
-    return filterdFiles
+    return filteredFiles!
   } catch (error) {
     if (/no such file or directory/.test(error)) showError(ERRORS.NOT_FOUND_DIR)
     showError(error)
   }
 }
 
-export const checkExpansion = (filename: string): any => {
+export const checkExpansion = (filename: string): string => {
   // specified file is not found
   if (!fs.existsSync(filename)) showError(ERRORS.NOT_FOUND_FILE)
 
-  // wrong expantion specified
+  // wrong expansion specified
   if (path.extname(filename) !== '.md') showError(ERRORS.NOT_MARKDOWN)
 
   return filename
@@ -70,9 +70,9 @@ export const countCharacters = (filename: string): ICountCharacters => {
   const text = fs.readFileSync(filename, 'utf8')
 
   let currentSection = new Section()
-  const lines: any[] = []
-  const sections = [currentSection]
-  const sectionFloors = [currentSection]
+  const lines: ILine[] = []
+  const sections: ISection[] = [currentSection]
+  const sectionFloors: ISection[] = [currentSection]
 
   const countUpAncestor = (section: ISection) => {
     for (let i = 0; i < section.floor; i++) {
@@ -82,13 +82,13 @@ export const countCharacters = (filename: string): ICountCharacters => {
 
   text.split(/\n/).forEach((text: string) => {
     const stripedText = text
-    .replace(/\n+/g, '')
-    .replace(/[\s\b ]/g, '')
-    .replace(/^#+.+$/g, '')
-    .replace(/^>+.+$/g, '')
-    .replace(/^-/g, '')
-    .replace(/^>/g, '')
-    .replace(/`/g, '')
+      .replace(/\n+/g, '')
+      .replace(/[\s\b ]/g, '')
+      .replace(/^#+.+$/g, '')
+      .replace(/^>+.+$/g, '')
+      .replace(/^-/g, '')
+      .replace(/^>/g, '')
+      .replace(/`/g, '')
     const length = stripedText.length
     const headerMatch = text.match(/^ *(#+) *(.+)$/)
 
