@@ -38,22 +38,16 @@ class Wcmd extends Command {
   - License ${'(72)'.green}
 
 $ ${'wcmd'.green} /path/to/directory -m
-- total ${'(2625)'.green}
-  - chapter1 ${'(2625)'.green}
+- total ${'(2468)'.green}
+  - chapter1 ${'(2468)'.green}
     - title1 ${'(678)'.green}
-    - title2 ${'(1947)'.green}
+    - title2 ${'(1790)'.green}
       - 1. section1 ${'(817)'.green}
       - 2. section2 ${'(640)'.green}
       - 3. section3 ${'(309)'.green}
-      - 4. section4 ${'(157)'.green}
 
 - total ${'(408)'.green}
   - chapter1 ${'(408)'.green}
-
-- total ${'(1182)'.green}
-  - chapter1 ${'(1182)'.green}
-    - title1 ${'(395)'.green}
-    - title2 ${'(301)'.green}
 
 ${'Note'.bgMagenta}
   - The ${'-l'.magenta} and ${'-m'.magenta} options cannot be used at the same time.
